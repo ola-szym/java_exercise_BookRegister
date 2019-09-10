@@ -21,6 +21,11 @@ public class BookRegister {
         bookRegister.addBook(book3);
         System.out.println("The following book: " + book3 + " was added into Book Register");
 
+        Book book4 = new Book("ABCAA123123AX", "1234567891236", "1977", "J.R.R.Tolkien", 150);
+        bookRegister.checkIfISBNAlreadyExists(book4.getISBN());
+        bookRegister.addBook(book4);
+        System.out.println("The following book: " + book4 + " was added into Book Register");
+
     }
 
 
