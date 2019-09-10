@@ -3,52 +3,51 @@ import org.junit.Test;
 import java.util.*;
 
 import static org.junit.Assert.*;
+import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
 
-import org.junit.Assert;
-import org.junit.Test;
 
 public class BookRegisterTest {
 
-//    @Test
-//    public void shouldCheckIfBookWasGot() {
-//        //given
-//        Book book1 = new Book("Hobbit", "1234567891234", "1937", "J.R.R.Tolkien", 250);
-//
-//        //when
-//        BookRegister register = new BookRegister();
-//        register.addBook(book1);
-//        Book book = register.getBook(book1.getTitle());
-//
-//        //then
-//        assertEquals(book1,book);
-//
-//    }
-//
-//        @Test(expected = IllegalStateException.class)
-//        public void shouldNotAddTheSameBookAgain(){
-//            //given
-//            Book book1 = new Book("Hobbit", "1234567891234", "1937", "J.R.R.Tolkien", 250);
-//            Book book2 = new Book("Hobbit", "1234567891234", "1937", "J.R.R.Tolkien", 250);
-//
-//            //when
-//            BookRegister register = new BookRegister();
-//            register.addBook(book1);
-//            register.addBook(book2);
-//        }
-//
-//        @Test
-//        public void shouldCheckIfBookWithConcreteISBNumberExistsInBookRegister(){
-//            //given
-//            Book book1 = new Book("Hobbit", "1234567891234", "1937", "J.R.R.Tolkien", 250);
-//
-//            //when
-//            BookRegister register = new BookRegister();
-//            register.addBook(book1);
-//            register.checkIfISBNAlreadyExists(book1.getISBN());
-//
-//            //then
-//            assertEquals("1234567891234",book1.getISBN());
-//        }
+    @Test
+    public void shouldCheckIfBookWasGot() {
+        //given
+        Book book1 = new Book("Hobbit", "1234567891234", "1937", "J.R.R.Tolkien", 250);
+
+        //when
+        BookRegister register = new BookRegister();
+        register.addBook(book1);
+        Book book = register.getBook(book1.getTitle());
+
+        //then
+        assertEquals(book1,book);
+
+    }
+
+        @Test(expected = IllegalStateException.class)
+        public void shouldNotAddTheSameBookAgain(){
+            //given
+            Book book1 = new Book("Hobbit", "1234567891234", "1937", "J.R.R.Tolkien", 250);
+            Book book2 = new Book("Hobbit", "1234567891234", "1937", "J.R.R.Tolkien", 250);
+
+            //when
+            BookRegister register = new BookRegister();
+            register.addBook(book1);
+            register.addBook(book2);
+        }
+
+        @Test
+        public void shouldCheckIfBookWithConcreteISBNumberExistsInBookRegister(){
+            //given
+            Book book1 = new Book("Hobbit", "1234567891234", "1937", "J.R.R.Tolkien", 250);
+
+            //when
+            BookRegister register = new BookRegister();
+            register.addBook(book1);
+            register.checkIfISBNAlreadyExists(book1.getISBN());
+
+            //then
+            assertEquals("1234567891234",book1.getISBN());
+        }
 
         @Test
         public void shouldCheckIfAllBooksFromAuthorAreReturned(){
@@ -72,7 +71,10 @@ public class BookRegisterTest {
             books.add(book3);
 
             //then
-            assertEquals(books,allBooksFromAuthor);
+
+            assertThat("List equality without order",
+                    allBooksFromAuthor, containsInAnyOrder(books.toArray()));
+
         }
 }
 

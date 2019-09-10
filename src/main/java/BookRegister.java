@@ -16,7 +16,7 @@ public class BookRegister {
         Book book2 = new Book("Lord of the Rings", "1234567891234", "1954", "J.R.R.Tolkien", 300);
         bookRegister.checkIfISBNAlreadyExists(book2.getISBN());
 
-        Book book3 = new Book("Silmarillion", "1234567891236", "1977", "J.R.R.Tolkien", 150);
+        Book book3 = new Book("X", "1234567891236", "1977", "J.R.R.Tolkien", 150);
         bookRegister.checkIfISBNAlreadyExists(book3.getISBN());
         bookRegister.addBook(book3);
         System.out.println("The following book: " + book3 + " was added into Book Register");
