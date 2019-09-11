@@ -1,5 +1,5 @@
 public class GitHelloWorld {
     public static void main(String[] args) {
-        System.out.println("Hello git! I like you :)");
+        System.out.println("Hello git! Let's start the adventure!");
     }
 }
