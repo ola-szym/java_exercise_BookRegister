@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 public class BookRegister {
 
     private Map<String, Book> bookList = new HashMap<>();
@@ -37,6 +38,12 @@ public class BookRegister {
             throw new IllegalStateException("This book already exists in Book Register");
         } else {
             bookList.put(key, book);
+        }
+    }
+
+    public void addBooks(List<Book> books){
+        for (Book element: books) {
+            addBook(element);
         }
     }
 
