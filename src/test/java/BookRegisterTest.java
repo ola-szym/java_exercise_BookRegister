@@ -79,7 +79,3 @@ public class BookRegisterTest {
 }
 
 
-
-// zrobić testy:
-// dodajemy książkę, pobieramy po tytule i spr czy pobrało
-// błąd przy dodawawniu książki drugi raz
